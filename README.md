@@ -5,7 +5,7 @@ Website that scrapes and summarizes major news sources. You can view the [websit
 This was a exercise in using event streams, JS, and setting up multiple microservices using Docker
 
 Below is a image of high level service architecture
-![https://github.com/jzisheng/News-Summarizer/blob/master/images/systemDesign.png?raw=true](System Design)
+![System Design](https://github.com/jzisheng/News-Summarizer/blob/master/images/systemDesign.png?raw=true)
 
 
 
