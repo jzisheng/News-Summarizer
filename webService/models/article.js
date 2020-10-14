@@ -24,7 +24,14 @@ const articleSchema = new mongoose.Schema({
     sanitizedHtml: {
 	type: String,
 	required: true
+    },
+    label: {
+	type:String
+    },
+    score: {
+	type:String
     }
+    
 })
 
 articleSchema.pre('validate' ,function(next){

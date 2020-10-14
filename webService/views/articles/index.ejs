@@ -11,42 +11,43 @@
   <div class="container">
     <div class="container mb-4">    
       <h1 class="mb-4">News Articles</h1>
-      <div class="card-text mb-2">This website scrapes news articles, and then uses BERT text summarizer to display summarized versions of the articles. You can view the original text of the article by selecting "read more". </br> Articles can be filtered by selecting keywords, or by selecting a 'positivity' rating range using the slider below(WIP)</div>            
+      <div class="card-text mb-2">This website scrapes news articles, and then uses BERT text summarizer
+	to display summarized versions of the articles, and the sentiment analysis! You can view the original
+	text of the article by selecting "read more".
+      </div>
+      <div class="card-text mb-2">
+	 </br> <a href="https://github.com/jzisheng/News-Summarizer">Learn more about
+	  this project here!</a>
+      </div>            
     </div>
 
-    <div class="container mb-4">
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-	<label class="btn btn-secondary active">
-	  <input type="radio" name="options" id="option1" autocomplete="off" checked> Trump
-	</label>
-	<label class="btn btn-secondary">
-	  <input type="radio" name="options" id="option2" autocomplete="off"> COVID 19
-	</label>
-	<label class="btn btn-secondary">
-	  <input type="radio" name="options" id="option3" autocomplete="off"> Halloween
-	</label>
-      </div>
-    </div>
-
-    <div class="container mb-4">    
-      <div class="card-text mb-2">Positivity rating slider</div>      
-      <div class="slidecontainer d-inline">
-	<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      </div>
-    </div>
     
     <% articles.forEach(article => { %>
     <div class="card mt-4">
       <div class = "card-body">
+	<div class="card-body">
+	  <h4 class="card-title"><%= article.title %></h4>
+	  <div class="card-subtitle text-muted mb-2"><%= article.createdAt.toLocaleDateString() %></div>
+	  <div class="card-text mb-2"><%= article.description %></div>
+	</div>
 	
-	<h4 class="card-title"><%= article.title %></h4>
-	<div class="card-subtitle text-muted mb-2"><%= article.createdAt.toLocaleDateString() %></div>
-	<div class="card-text mb-2"><%= article.description %></div>
-	<a href="articles/<%= article.id %>" class="btn btn-primary">Read more</a>
-	<form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
-	  <button type="submit" class="btn btn-danger">Delete</button>
-	</form>      
+	<div class="card-body">
+	  <ul class="list-group list-group-flush">
+	    <li class="list-group-item">Sentiment: <%= article.label %> </li>
+	    <li class="list-group-item">Score: <%= article.score %></li>
+	  </ul>
+	</div>
+
+	<div class="card-body">
+	  <a href="articles/<%= article.id %>" class="btn btn-primary">Read more</a>
+	  <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+	    <button type="submit" class="btn btn-danger">Delete</button>
+	  </form>
+	</div>
 	
+	<div class="card-body">	
+	  <footer class="blockquote-footer">News summary and analysis by BERT Transformer. Select 'Read More' for full text.</footer>
+	</div>	
       </div>
     </div>
     <% }) %>
