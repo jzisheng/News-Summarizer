@@ -30,8 +30,6 @@ the webservice can read from.
 Next steps include exploring taking advantage
 of Faust, a asynchronous package for consuming
 Kafka events. 
- 
-inserted into mongodb
 
 ![System Design](https://github.com/jzisheng/News-Summarizer/blob/master/images/systemDesign.png?raw=true)
 
